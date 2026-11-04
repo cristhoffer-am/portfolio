@@ -6,7 +6,7 @@ export const profile = {
   subtitle:
     "Más de 6 años garantizando la eficiencia operativa, el control exacto de valores y la excelencia en el servicio al cliente.",
   about:
-    "Técnico en Contabilidad egresado de Certus, con más de 6 años de experiencia en gestión de caja y atención al público en retail, salud y servicios. Especializado en control de efectivo, arqueos diarios, facturación electrónica y manejo de sistemas POS. Cuento con una base contable que me permite cuidar el cumplimiento de los procedimientos internos y prevenir errores financieros. Soy puntual, honesto y con iniciativa para coordinar el trabajo del equipo de cajas. Próximo a iniciar estudios en Marketing y Gestión de Medios Digitales en ADEX.",
+    "Técnico en Contabilidad egresado de Certus, con más de 6 años de experiencia en gestión de caja y atención al público en retail, salud y servicios. Especializado en control de efectivo, arqueos diarios, facturación electrónica y manejo de sistemas POS. Cuento con una base contable que me permite cuidar el cumplimiento de los procedimientos internos y prevenir errores financieros. Soy puntual, honesto y con iniciativa para coordinar el trabajo del equipo de cajas. Próximo a iniciar estudios en Marketing y Medios Digitales en ADEX.",
   phone: "+51 922 083 364",
   phoneHref: "tel:+51922083364",
   email: "aylasmorenocristhoffer@gmail.com",
@@ -126,13 +126,13 @@ export const experience = [
 
 export const education = [
   {
-    program: "Estudiante de Bachiller Profesional en Marketing y Medios Digitales",
+    program: "Estudiante de Bachiller en Marketing y Medios Digitales",
     school: "ADEX",
     period: "2027 - 2029",
     upcoming: true,
   },
   {
-    program: "Profesional Técnico en Contabilidad",
+    program: "Técnico en Contabilidad",
     school: "Certus",
     period: "Egresado",
     upcoming: false,
