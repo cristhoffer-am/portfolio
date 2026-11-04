@@ -57,7 +57,12 @@ const {
       )
     }
   </head>
-  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+  <body
+    class:list={[
+      "min-h-screen antialiased",
+      variant === "document" ? "bg-[#0a0a0b] text-white" : "bg-slate-50 text-slate-900",
+    ]}
+  >
     <a
       href="#contenido"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:shadow"

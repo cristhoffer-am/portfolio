@@ -1,0 +1,168 @@
+body:has(.resume-page) {
+  background: #0a0a0b;
+  color: #ffffff;
+}
+
+.resume-page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 40px 50px;
+  background: #ffffff;
+  color: #111111;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  line-height: 1.3;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.resume-header {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #111111;
+  text-align: center;
+}
+
+.resume-name {
+  margin: 0;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: #111111;
+}
+
+.resume-headline {
+  margin: 6px 0 8px;
+  font-size: 11.5pt;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #222222;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 0.92em;
+  color: #333333;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-item svg {
+  width: 11px;
+  height: 11px;
+  flex: none;
+}
+
+.section-block {
+  margin-bottom: 22px;
+}
+
+.section-title {
+  margin: 0 0 12px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #111111;
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.profile-text {
+  margin: 0;
+  text-align: justify;
+  line-height: 1.45;
+}
+
+.entry {
+  margin-bottom: 18px;
+}
+
+.entry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.entry-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-right: 12px;
+}
+
+.entry-aside {
+  flex: 0 0 auto;
+  margin-left: 16px;
+  white-space: nowrap;
+}
+
+.entry-list {
+  margin: 6px 0 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.entry-list li + li {
+  margin-top: 6px;
+}
+
+.entry-list li {
+  line-height: 1.45;
+  text-align: justify;
+}
+
+.skill-line {
+  margin: 0 0 4px;
+}
+
+@media (max-width: 860px) {
+  .resume-page {
+    width: 100%;
+    min-height: 0;
+    padding: 28px 20px;
+  }
+
+  .resume-name {
+    font-size: 16pt;
+    letter-spacing: 0.06em;
+  }
+
+  .entry-aside {
+    white-space: normal;
+    text-align: right;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .resume-stage {
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  .resume-page {
+    width: auto;
+    min-height: 0;
+    box-shadow: none;
+  }
+}
