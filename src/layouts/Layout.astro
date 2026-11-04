@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import { profile } from "../data/profile";
+
+interface Props {
+  title?: string;
+  description?: string;
+  variant?: "site" | "document";
+}
+
+const {
+  title = `${profile.name} | Contabilidad y operaciones`,
+  description = profile.subtitle,
+  variant = "site",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta name="theme-color" content="#f8fafc" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    {
+      variant === "site" && (
+        <script type="application/ld+json" set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: profile.name,
+          jobTitle: profile.title,
+          email: profile.email,
+          telephone: "+51922083364",
+          url: profile.linkedin,
+          sameAs: [profile.linkedin],
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Santa Anita",
+            addressRegion: "Lima",
+            addressCountry: "PE",
+          },
+        })} />
+      )
+    }
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:shadow"
+    >
+      Saltar al contenido
+    </a>
+    {variant === "site" && <Navbar />}
+    <main id="contenido">
+      <slot />
+    </main>
+  </body>
+</html>

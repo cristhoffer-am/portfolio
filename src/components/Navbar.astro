@@ -1,0 +1,89 @@
+---
+import { navLinks, profile } from "../data/profile";
+import Icon from "./Icon.astro";
+---
+
+<header class="group sticky top-0 z-50 border-b border-slate-200/80 bg-white/75 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
+    <a
+      href="#inicio"
+      class="flex min-w-0 items-center gap-3 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
+    >
+      <span class="grid size-11 shrink-0 place-items-center rounded-2xl bg-blue-700 font-serif text-sm font-semibold tracking-wide text-white shadow-sm">
+        {profile.initials}
+      </span>
+      <span class="min-w-0 leading-tight">
+        <span class="block truncate text-sm font-semibold text-slate-900">{profile.shortName}</span>
+        <span class="block truncate text-xs text-slate-500">Contabilidad y operaciones</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Secciones">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-full px-3 py-2 text-sm font-medium text-slate-600 transition-all duration-300 hover:bg-blue-50 hover:text-blue-700"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={profile.cvHref}
+        class="hidden items-center gap-2 rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:scale-105 hover:bg-blue-700 sm:inline-flex"
+      >
+        <Icon name="download" class="size-4" />
+        Descargar CV
+      </a>
+      <div class="lg:hidden">
+        <input id="nav-toggle" type="checkbox" class="sr-only" aria-label="Abrir menú" />
+        <label
+          for="nav-toggle"
+          class="grid size-11 cursor-pointer place-items-center rounded-2xl border border-slate-200 text-slate-900 transition-all hover:border-blue-200 hover:text-blue-700"
+        >
+          <Icon name="menu" class="size-5 group-has-[:checked]:hidden" />
+          <Icon name="close" class="hidden size-5 group-has-[:checked]:block" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <nav class="hidden border-t border-slate-100 group-has-[:checked]:block lg:hidden" aria-label="Secciones móvil">
+    <ul class="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-3">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="block rounded-2xl px-3 py-3 text-base font-medium text-slate-700 transition-all hover:bg-blue-50 hover:text-blue-700"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="pt-1 sm:hidden">
+        <a
+          href={profile.cvHref}
+          class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-3 text-sm font-semibold text-white"
+        >
+          <Icon name="download" class="size-4" />
+          Descargar CV
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script is:inline>
+  document.querySelectorAll("header nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const toggle = document.getElementById("nav-toggle");
+      if (toggle instanceof HTMLInputElement) toggle.checked = false;
+    });
+  });
+</script>

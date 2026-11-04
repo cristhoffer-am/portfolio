@@ -1,0 +1,48 @@
+---
+import { experience } from "../data/profile";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section id="experiencia" class="scroll-mt-24 py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <SectionHeading
+      eyebrow="Trayectoria"
+      title="Experiencia laboral"
+      lede="Retail, salud y servicios. Cada puesto con responsabilidad directa sobre la caja, el cuadre y las personas."
+    />
+
+    <ol class="relative mt-16 space-y-8 border-l border-blue-200 pl-6 sm:pl-10">
+      {
+        experience.map((job) => (
+          <li class="relative">
+            <span class="absolute -left-[29px] top-8 size-3.5 rounded-full border-[3px] border-white bg-blue-600 shadow ring-2 ring-blue-100 sm:-left-[45px]"></span>
+            <article class="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg sm:p-8">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div class="flex items-start gap-4">
+                  <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-blue-50 font-serif text-sm font-semibold text-blue-800">
+                    {job.mark}
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-blue-700">{job.company}</p>
+                    <h3 class="mt-1 font-serif text-2xl text-slate-900 sm:text-[1.7rem]">{job.role}</h3>
+                  </div>
+                </div>
+                <p class="w-fit rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">
+                  {job.period}
+                </p>
+              </div>
+              <ul class="mt-6 max-w-3xl space-y-2.5">
+                {job.highlights.map((item) => (
+                  <li class="flex gap-3 text-slate-700">
+                    <span class="mt-2 size-1.5 shrink-0 rounded-full bg-blue-600"></span>
+                    <span class="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

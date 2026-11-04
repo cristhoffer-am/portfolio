@@ -1,0 +1,49 @@
+---
+import { education } from "../data/profile";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section id="educacion" class="scroll-mt-24 border-t border-slate-200/80 bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <SectionHeading
+      eyebrow="Formación"
+      title="Educación"
+      lede="La base contable ya está. El siguiente capítulo es comercial, en ADEX."
+    />
+
+    <div class="mt-16 grid gap-6 lg:grid-cols-5">
+      {
+        education.map((item) => (
+          <article
+            class:list={[
+              "flex h-full flex-col justify-between rounded-[1.75rem] p-7 transition-all duration-300 hover:-translate-y-1 sm:p-8",
+              item.upcoming
+                ? "bg-gradient-to-br from-blue-700 to-blue-600 text-white shadow-lg shadow-blue-700/20 lg:col-span-3"
+                : "border border-slate-200 bg-slate-50 text-slate-900 hover:border-blue-200 hover:bg-white hover:shadow-lg lg:col-span-2",
+            ]}
+          >
+            <div>
+              <p
+                class:list={[
+                  "text-sm font-semibold uppercase tracking-[0.18em]",
+                  item.upcoming ? "text-blue-100" : "text-blue-700",
+                ]}
+              >
+                {item.school}
+              </p>
+              <h3 class="mt-3 font-serif text-3xl leading-tight">{item.program}</h3>
+            </div>
+            <p
+              class:list={[
+                "mt-8 w-fit rounded-full px-3 py-1 text-sm font-semibold",
+                item.upcoming ? "bg-white/15 text-white" : "bg-white text-slate-700 ring-1 ring-slate-200",
+              ]}
+            >
+              {item.period}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
